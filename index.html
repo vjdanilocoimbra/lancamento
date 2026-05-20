@@ -8,7 +8,7 @@
 <meta property="og:title" content="OS MAPAS ESTÃO PRONTOS — Lançamento Danilo Coimbra">
 <meta property="og:description" content="2 livros pra dominar IA. Pra quem usa e pra quem constrói. Preço de lançamento essa semana.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="assets/hero_banner_wide.png">
+<meta property="og:image" content="assets/hero_banner_wide.png?v=3">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;1,300&family=Share+Tech+Mono&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
@@ -333,6 +333,7 @@ body {
   box-shadow: 0 0 40px rgba(255,200,87,.16);
   position: relative;
   z-index: 5;
+  padding-top: 46px; /* abre espaço pro badge MAIS COMPRADO */
 }
 .offer-card.master::after {
   content: '';
@@ -358,7 +359,7 @@ body {
 /* badge "mais comprado" no card master */
 .master-badge {
   position: absolute;
-  top: -14px; left: 50%;
+  top: 12px; left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(135deg, var(--c-gold), var(--c5));
   color: #000;
@@ -367,8 +368,10 @@ body {
   font-weight: 900;
   letter-spacing: .15em;
   padding: 6px 16px;
-  border-radius: 4px;
-  box-shadow: 0 4px 14px rgba(255,200,87,.4);
+  border-radius: 20px;
+  box-shadow: 0 4px 14px rgba(255,200,87,.4), 0 0 20px rgba(255,200,87,.3);
+  white-space: nowrap;
+  z-index: 10;
 }
 
 .pill {
@@ -409,6 +412,17 @@ body {
   filter: drop-shadow(0 8px 24px rgba(0,212,255,.2));
 }
 .offer-card.master .card-image { filter: drop-shadow(0 8px 24px rgba(255,200,87,.25)); }
+
+/* Capa Iniciante: recorta a borda branca da imagem original
+   e adiciona glow cyan integrado ao tema dark */
+.card-image[src*="capa_iniciante"] {
+  clip-path: inset(2.5% 3% 2.5% 3% round 10px);
+  transform: scale(1.06);
+  transform-origin: center;
+  filter:
+    drop-shadow(0 0 20px rgba(0,212,255,.35))
+    drop-shadow(0 8px 24px rgba(0,0,0,.55));
+}
 
 .card-features {
   list-style: none;
@@ -628,6 +642,12 @@ body {
   gap: 24px;
   text-align: left;
   margin-top: 30px;
+}
+.diff-grid.single {
+  grid-template-columns: 1fr;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
 }
 @media (max-width: 700px) {
   .diff-grid { grid-template-columns: 1fr; }
@@ -907,7 +927,7 @@ body {
     </p>
 
     <div class="hero-banner">
-      <img src="assets/hero_banner_wide.png" alt="IA pra Iniciantes e KERNEO — dois livros holográficos com glow cyan e magenta">
+      <img src="assets/hero_banner_wide.png?v=3" alt="IA pra Iniciantes e KERNEO — dois livros holográficos com glow cyan e magenta">
     </div>
 
     <div class="timer-wrap">
@@ -1070,24 +1090,15 @@ body {
       Não é mais um curso de IA.<br>
       É o que <em>eu queria ter encontrado</em> em 2022.
     </p>
-    <div class="diff-grid">
-      <div class="diff-col neg">
-        <h4>❌ Outros materiais</h4>
-        <ul>
-          <li>· Gringos traduzidos no Google</li>
-          <li>· Promessa de "ficar rico em 7 dias"</li>
-          <li>· Tudo pra cima, sem honestidade</li>
-          <li>· Sem caso brasileiro real</li>
-          <li>· Sem construtor de verdade</li>
-        </ul>
-      </div>
+    <div class="diff-grid single">
       <div class="diff-col pos">
         <h4>✅ Aqui dentro</h4>
         <ul>
-          <li>· Escrito por quem CONSTRUIU uma IA</li>
-          <li>· Em português, com casos brasileiros</li>
-          <li>· Capítulo inteiro de quando IA ERRA</li>
+          <li>· Escrito por quem <strong>CONSTRUIU</strong> uma IA</li>
+          <li>· Capítulo inteiro de quando IA <strong>ERRA</strong></li>
           <li>· Privacidade (IA local + LGPD)</li>
+          <li>· 50 prompts prontos no apêndice</li>
+          <li>· Receitas, finanças, redação, casa — <strong>IA aplicada</strong></li>
           <li>· Sem promessa boba — só o que funciona</li>
         </ul>
       </div>
@@ -1106,7 +1117,7 @@ body {
     <div class="step reveal">
       <div class="num">02</div>
       <div class="title">RECEBE NA HORA</div>
-      <p class="desc">PDF entregue automaticamente no seu email + área de membros. Lê no celular ou no PC.</p>
+      <p class="desc">PDF disponível <strong>automaticamente</strong>. Leitura no <strong>celular, tablet ou PC</strong>.</p>
     </div>
     <div class="step reveal">
       <div class="num">03</div>
