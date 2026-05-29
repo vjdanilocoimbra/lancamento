@@ -89,7 +89,7 @@ body {
    STATUS BAR TOP (sticky)
 ════════════════════════════════════════════════════════════ */
 .top-bar {
-  position: sticky; top: 0; z-index: 50;
+  position: sticky; top: 42px; z-index: 50;
   background: rgba(2, 11, 24, .92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(0,212,255,.18);
@@ -100,6 +100,115 @@ body {
   letter-spacing: .12em;
   color: var(--c1);
   text-transform: uppercase;
+}
+
+/* ════════════════════════════════════════════════════════════
+   FLASH SALE BAR (sticky topo)
+════════════════════════════════════════════════════════════ */
+.flash-bar {
+  position: sticky; top: 0; z-index: 60;
+  background: linear-gradient(90deg, #ff2d92, #ff6b00, #ff2d92, #ff6b00);
+  background-size: 300% 100%;
+  animation: flashSlide 4s linear infinite, flashGlow 1.6s ease-in-out infinite;
+  color: #fff;
+  font-family: var(--font-hud, 'Orbitron', sans-serif);
+  font-weight: 900;
+  text-align: center;
+  padding: 11px 16px;
+  font-size: 13px;
+  letter-spacing: .14em;
+  border-bottom: 2px solid rgba(255,255,255,.35);
+  text-transform: uppercase;
+}
+.flash-bar code {
+  background: rgba(0,0,0,.45);
+  padding: 3px 11px;
+  border-radius: 4px;
+  font-family: var(--font-mono, 'Courier New', monospace);
+  letter-spacing: .22em;
+  margin: 0 4px;
+  border: 1px solid rgba(255,255,255,.3);
+}
+@keyframes flashSlide {
+  0% { background-position: 0% 0; }
+  100% { background-position: 300% 0; }
+}
+@keyframes flashGlow {
+  0%, 100% { box-shadow: 0 0 25px rgba(255,45,146,.6), inset 0 0 20px rgba(255,255,255,.1); }
+  50% { box-shadow: 0 0 45px rgba(255,107,0,.85), inset 0 0 25px rgba(255,255,255,.15); }
+}
+
+/* ════════════════════════════════════════════════════════════
+   FLASH SALE BANNER (hero)
+════════════════════════════════════════════════════════════ */
+.flash-hero {
+  margin: 30px auto 18px;
+  max-width: 720px;
+  padding: 26px 32px;
+  background:
+    linear-gradient(135deg, rgba(255,45,146,.18), rgba(255,107,0,.12), rgba(255,45,146,.18)),
+    rgba(20, 5, 20, .65);
+  border: 2px solid rgba(255,45,146,.55);
+  border-radius: 14px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: flashHeroPulse 2.4s ease-in-out infinite;
+}
+@keyframes flashHeroPulse {
+  0%, 100% { border-color: rgba(255,45,146,.5); box-shadow: 0 0 35px rgba(255,45,146,.3); }
+  50% { border-color: rgba(255,107,0,.85); box-shadow: 0 0 55px rgba(255,107,0,.55); }
+}
+.flash-hero::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  animation: flashScan 2.5s linear infinite;
+}
+@keyframes flashScan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.flash-hero-tag {
+  font-family: var(--font-hud, 'Orbitron', sans-serif);
+  font-size: 11px;
+  letter-spacing: .35em;
+  color: #ff9d3b;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.flash-hero-title {
+  font-family: var(--font-hud, 'Orbitron', sans-serif);
+  font-size: clamp(22px, 4.2vw, 32px);
+  font-weight: 900;
+  color: #fff;
+  margin: 4px 0 8px;
+  letter-spacing: .04em;
+  line-height: 1.1;
+  text-shadow: 0 0 18px rgba(255,45,146,.6);
+}
+.flash-hero-title strong {
+  color: #ffd54f;
+  text-shadow: 0 0 20px rgba(255,213,79,.7);
+}
+.flash-hero-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,.88);
+  margin: 8px 0 14px;
+  font-family: var(--font-body, system-ui);
+}
+.flash-hero-code {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff2d92, #ff6b00);
+  color: #fff;
+  font-family: var(--font-mono, 'Courier New', monospace);
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: .3em;
+  padding: 10px 24px;
+  border-radius: 6px;
+  box-shadow: 0 0 25px rgba(255,45,146,.65), inset 0 1px 0 rgba(255,255,255,.3);
+  border: 1px solid rgba(255,255,255,.25);
 }
 .top-bar .left { display: flex; align-items: center; gap: 8px; }
 .top-bar .right { color: var(--c-gold); }
@@ -901,6 +1010,11 @@ body {
   </svg>
 </div>
 
+<!-- ⚡ FLASH SALE BAR (topo, sticky, pulsante) -->
+<div class="flash-bar">
+  ⚡ OFERTA RELÂMPAGO · 48H · TUDO −50% COM CUPOM <code>JARVIS</code> ⚡
+</div>
+
 <!-- Top bar status -->
 <div class="top-bar">
   <div class="left">
@@ -928,6 +1042,19 @@ body {
 
     <div class="hero-banner">
       <img src="assets/hero_banner_wide.png?v=3" alt="IA pra Iniciantes e KERNEO — dois livros holográficos com glow cyan e magenta">
+    </div>
+
+    <!-- ⚡ FLASH SALE HERO BANNER -->
+    <div class="flash-hero reveal">
+      <div class="flash-hero-tag">⚡ OFERTA RELÂMPAGO · APENAS 48 HORAS</div>
+      <div class="flash-hero-title">
+        TUDO COM <strong>−50% OFF</strong>
+      </div>
+      <p class="flash-hero-sub">
+        Use o cupom abaixo no checkout da Hotmart.<br>
+        Vale pros 3 caminhos: Iniciante, Kerneo e Combo Master.
+      </p>
+      <div class="flash-hero-code">JARVIS</div>
     </div>
 
     <div class="timer-wrap">
