@@ -619,6 +619,47 @@ body {
   font-weight: 600;
 }
 
+/* ⚡ Preço com cupom JARVIS (oferta relâmpago) */
+.price-jarvis {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(255,107,0,.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.price-jarvis-tag {
+  font-family: var(--font-hud);
+  font-size: 10px;
+  letter-spacing: .25em;
+  color: #ff9d3b;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.price-jarvis-amount {
+  font-family: var(--font-hud);
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, #ff2d92, #ffd54f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 14px rgba(255,45,146,.5));
+  animation: jarvisGlow 2.2s ease-in-out infinite;
+}
+.price-jarvis-amount .currency {
+  font-size: 16px;
+  vertical-align: super;
+  margin-right: 3px;
+}
+.price-jarvis-amount .cents { font-size: 22px; }
+@keyframes jarvisGlow {
+  0%, 100% { filter: drop-shadow(0 0 10px rgba(255,45,146,.5)); }
+  50% { filter: drop-shadow(0 0 22px rgba(255,107,0,.75)); }
+}
+
 .cta-btn {
   display: flex; align-items: center; justify-content: center;
   gap: 10px;
@@ -1100,9 +1141,11 @@ body {
       </ul>
 
       <div class="price-block">
-        <div class="price-old">de R$ 120,00</div>
         <div class="price-new"><span class="currency">R$</span>67</div>
-        <div class="price-discount">−44% off</div>
+        <div class="price-jarvis">
+          <span class="price-jarvis-tag">⚡ COM CUPOM JARVIS</span>
+          <span class="price-jarvis-amount"><span class="currency">R$</span>33<span class="cents">,50</span></span>
+        </div>
       </div>
 
       <a class="cta-btn" href="#" data-product="iniciante" target="_blank" rel="noopener">
@@ -1130,9 +1173,11 @@ body {
       </ul>
 
       <div class="price-block">
-        <div class="price-old">de R$ 210,00</div>
         <div class="price-new"><span class="currency">R$</span>120</div>
-        <div class="price-discount">−43% off</div>
+        <div class="price-jarvis">
+          <span class="price-jarvis-tag">⚡ COM CUPOM JARVIS</span>
+          <span class="price-jarvis-amount"><span class="currency">R$</span>60<span class="cents">,00</span></span>
+        </div>
       </div>
 
       <a class="cta-btn" href="#" data-product="kerneo" target="_blank" rel="noopener">
@@ -1163,9 +1208,11 @@ body {
       </ul>
 
       <div class="price-block">
-        <div class="price-old">de R$ 370,00</div>
         <div class="price-new"><span class="currency">R$</span>210</div>
-        <div class="price-discount">−43% off</div>
+        <div class="price-jarvis">
+          <span class="price-jarvis-tag">⚡ COM CUPOM JARVIS</span>
+          <span class="price-jarvis-amount"><span class="currency">R$</span>105<span class="cents">,00</span></span>
+        </div>
       </div>
 
       <a class="cta-btn" href="#" data-product="combo" target="_blank" rel="noopener">
